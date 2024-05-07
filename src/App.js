@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import List from "./components/List";
+// ? Import это ключевое слово, используемое в JS (React) для включения функциональности или кода из другого файла (модуля) в текущий файл. Это позволяет использовать переменные, функции, классы и другие элементы из других модулей в текущем коде.
 
-function App() {
+const App = () => {
+  const deleteItem = (index) => {
+    const updatedElems = [...elems];
+    updatedElems.splice(index, 1);
+    setElems(updatedElems);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <List deleteItem={deleteItem} />
     </div>
   );
-}
-
+};
+// Это ключевое слово, которое позволяет указать, какие переменные, функции или классы должны быть доступны для использования из других файлов
 export default App;
